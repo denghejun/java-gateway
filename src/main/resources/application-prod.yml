@@ -1,0 +1,24 @@
+zuul:
+  ignoredPatterns: /**/swagger-ui.html,/**/swagger/login
+  routes:
+    api:
+      path: /api/**
+      url: http://www.baidu.com
+sensitive-headers:
+host:
+  connect-timeout-millis: 60000
+  socket-timeout-mills: 60000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+
+application:
+  regex:
+    static-resources: \.(js|map|woff2|png|gif|bmp|icon|ico|css|html)($|\?)
+  ignored-url:
